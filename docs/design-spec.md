@@ -1,4 +1,4 @@
-##Design Specifications
+## Design Specifications
 **Color Palette:**
 
 Background: #F9FAFB (gray-50)
@@ -29,7 +29,7 @@ Buttons: Height 40px, rounded corners, full width
 Cards: White background, subtle shadow, 8px border radius
 Grid: 3 columns (1 form, 2 list) on desktop, stacks on mobile
 
-##Layout Structure
+## Layout Structure
 **Header Section:**
 
 Title "Asset Management"
