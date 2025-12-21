@@ -33,7 +33,7 @@ export default function AssetsInput(props: { onAddAsset: (asset: Asset) => void,
                 id: 0,
                 name: "",
                 price: 0,
-                boughtAt: new Date(),
+                boughtAt: new Date(Date.now()),
                 description: "",
             });
             console.log(asset.name, asset.price, asset.boughtAt, asset.description);
@@ -49,14 +49,14 @@ export default function AssetsInput(props: { onAddAsset: (asset: Asset) => void,
             id: 0,
             name: "",
             price: 0,
-            boughtAt: new Date(),
+            boughtAt: new Date(Date.now()),
             description: "",
         });
         console.log(asset.name, asset.price, asset.boughtAt, asset.description);
     }
 
     return (
-        <div className="header">
+        <header>
             <div className="main">
                 <input type="text" placeholder="Asset name" value={asset.name} onChange={(event) => setName(event.target.value)} />
                 <input type="number" placeholder="Asset price" value={asset.price} onChange={(event) => setPrice(Number(event.target.value))} />
@@ -64,11 +64,27 @@ export default function AssetsInput(props: { onAddAsset: (asset: Asset) => void,
                 <input type="text" placeholder="Asset description" value={asset.description} onChange={(event) => setDescription(event.target.value)} />
                 <button id="submit" onClick={handleSubmit}>Add</button>
             </div>
-        </div>
+        </header>
     )
 
     function getBoughtAtDateString(): string {
-        const fullString = asset.boughtAt.toISOString();
+        let boughtAt: Date = new Date();
+        try {
+            boughtAt = new Date(asset.boughtAt);
+        } catch (error) {
+            console.log(error);
+            return "";
+        }
+        if (!boughtAt) return "";
+
+        //if (!isValidDateTime(boughtAt.toDateString())) return "";
+        let fullString = "";
+        try {
+            fullString = boughtAt.toISOString();
+        } catch (error) {
+            console.log(error);
+            return "";
+        }
         if (!fullString) return "";
         const stringSections = fullString.split("T");
         if (stringSections.length < 1) return "";
