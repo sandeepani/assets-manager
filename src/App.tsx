@@ -16,7 +16,7 @@ function App() {
     description: "",
   });
 
-  let isSiteLoaded: boolean = false;
+
 
   function addAsset(asset: Asset) {
     console.log(asset);
@@ -69,7 +69,7 @@ function App() {
     const mappedAssets = storedData.assets.map((a: any) => Asset.fromJSON(a));
     setAssets(mappedAssets);
 
-    isSiteLoaded = true;
+
   }, []);
 
   // useEffect(() => {

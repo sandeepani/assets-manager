@@ -1,4 +1,4 @@
-import React from 'react'
+
 import AssetsCard from './AssetsCard'
 import type { Asset } from '../models/Asset';
 

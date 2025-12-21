@@ -90,23 +90,6 @@ export default function AssetsCard(props: { asset: Asset, children: React.ReactN
         return Math.round(differenceMs / ONE_DAY);
     }
 
-    /**
- * Calculates the difference in total days between two dates.
- * @param {Date} date1 The first date.
- * @param {Date} date2 The second date.
- * @returns {number} The number of days between the two dates.
- */
-    function getUtcDate(date: Date) {
-        console.log(date);
 
-        const utc = Date.UTC(date.getFullYear(), date.getMonth(),
-            date.getDate(), date.getHours(),
-            date.getMinutes(), date.getSeconds());
-
-        const utcDate = new Date(utc);
-        //console.log(utcDate);
-
-        return utcDate;
-    }
 
 }

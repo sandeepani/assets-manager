@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import type { Asset } from "../models/Asset";
 
 export default function AssetsInput(props: { onAddAsset: (asset: Asset) => void, asset: Asset, setAsset: (asset: Asset) => void, updateAsset: (asset: Asset) => void }) {
