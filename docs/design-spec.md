@@ -78,15 +78,15 @@ All form fields have proper labels and placeholders
 Each asset displayed as a white card with hover effect
 
 Asset cards show:
-    - Top row: Asset name (bold) with delete icon (trash) on the right
-        - Purchase date in smaller gray text
-        - Description (if provided)
-    - Bottom grid (4 columns on desktop, 2 on mobile):
-        - Purchase Price (black)
-        - Current Value (green)
-        - Depreciation amount (red, with minus sign)
-        - Depreciation percentage
-    - Empty state message when no assets exist
+- Top row: Asset name (bold) with delete icon (trash) on the right
+    - Purchase date in smaller gray text
+    - Description (if provided)
+- Bottom grid (4 columns on desktop, 2 on mobile):
+    - Purchase Price (black)
+    - Current Value (green)
+    - Depreciation amount (red, with minus sign)
+    - Depreciation percentage
+- Empty state message when no assets exist
 
 ### Design Features:
 
