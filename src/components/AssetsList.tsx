@@ -8,7 +8,7 @@ export default function AssetsList(props: { assets: Asset[], onDeleteAsset: (id:
     const actions = { onDeleteAsset, onEditAsset };
 
     return (
-        <ul className='main'>
+        <ul className='main-grid'>
             {assets.map((asset, index) => {
                 const newProps = { ...actions, asset };
                 return (

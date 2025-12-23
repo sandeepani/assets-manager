@@ -6,21 +6,65 @@
   color: #202124;
 }
 
-h1,
-h2,
 h3,
 input,
 button {
+  font-family: 'Inter', system-ui;
+}
+
+h1,
+h2{
   font-family: 'Press Start 2P', system-ui;
+  color: #6C5CF3;
 }
 
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 14px;
-  background: #eff6ff;
-  gap: 14px;
+  padding: 28px;
+  background: #F9FAFB;
+  gap: 32px;
+}
+
+/* Asset Management Figma */
+
+.title-container h1,
+.title-container h4 {
+  display: flex;
+  align-items: stretch;
+}
+
+
+.title {
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+
+}
+
+.sub-title {
+  /* 
+  position: absolute;
+  height: 24px;
+  left: 0%;
+  right: 67.71%;
+  top: 43.5px; */
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4A5565;
+}
+  
+.content-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 header {
@@ -41,13 +85,23 @@ header input {
   border-radius: 14px;
   outline: none;
   width: 100%;
+  background: #F3F3F5;
 }
 
 header button {
-  border-radius: 14px;
-  background: transparent;
+  /* border-radius: 14px; */
+  /* background: transparent; */
   transition-duration: 200ms;
   cursor: pointer;
+background: #6C5CF3;
+border-radius: 8px;
+color: white;
+  /* Button inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3 w-full */
+/* 
+height: 36px;
+top: 324px; */
+
+
 }
 
 header button:hover {
@@ -59,36 +113,61 @@ header input {
   padding: 14px 18px;
   border: none;
   outline: none;
-  background: white;
 }
 
 p {
   font-size: 0.9em;
 }
 
-.main {
+.main,
+.todoItem {
+  border: 2px solid #6C5CF3;
+  border-radius: 14px;
+  background: white; 
+}
+
+.main,
+.main-grid {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+}
+
+.main {
+  padding: 24px;
+  gap: 16px;
+}
+
+.main h2 {
+  margin-bottom: 48px;
+}
+
+.main-grid {
+  gap: 32px;
 }
 
 .todoItem {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px;
-  border-radius: 14px;
-  background: white;
+  gap: 16px;
+  padding: 16px;
+  flex: 1;
+}
+
+.todoItem h2 {
+  font-family: "Press Start 2P", system-ui;
+  justify-content: center;
+  min-width: 200px;
 }
 
 .todoItem p {
-  flex: 1;
+  min-width: 20px;
 }
 
 .actionsContainer {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .actionsContainer button {
@@ -113,5 +192,30 @@ p {
 
   p {
     font-size: 1em;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+
+  header button,
+  header input {
+    font-size: 1.4em;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
   }
 }

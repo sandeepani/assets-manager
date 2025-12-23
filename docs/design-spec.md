@@ -1,14 +1,17 @@
 ## Design Specifications
+
 **Color Palette:**
 
 - Background: #F9FAFB (gray-50)
 - Cards: #FFFFFF (white)
+- Primary Title Text: #6C5CF3
 - Primary Text: #111827 (gray-900)
 - Secondary Text: #6B7280 (gray-500)
 - Border: #E5E7EB (gray-200)
 - Success (Current Value): #16A34A (green-600)
 - Danger (Depreciation): #DC2626 (red-600)
-- Primary Button: #2563EB (blue-600)
+- Primary Button: #6C5CF3
+  #6C5CF3 instead of #030213
 
 **Typography:**
 
@@ -33,6 +36,7 @@
 - Grid: 3 columns (1 form, 2 list) on desktop, stacks on mobile
 
 ## Layout Structure
+
 ### Header Section:
 
 - Title "Asset Management"
@@ -46,11 +50,12 @@
 - White card with shadow
 
 - **Clean input fields for:**
-    - Asset Name
-    - Purchase Price (with decimal support)
-    - Purchase Date (date picker)
-    - Description (text area)
-    - Blue "Add Asset" button spanning full width
+
+  - Asset Name
+  - Purchase Price (with decimal support)
+  - Purchase Date (date picker)
+  - Description (text area)
+  - Blue "Add Asset" button spanning full width
 
 - All form fields have proper labels and placeholders
 
@@ -59,14 +64,14 @@
 - Each asset displayed as a white card with hover effect
 
 - **Asset cards show:**
-    - Top row: Asset name (bold) with delete icon (trash) on the right
-        - Purchase date in smaller gray text
-        - Description (if provided)
-    - Bottom grid (4 columns on desktop, 2 on mobile):
-        - Purchase Price (black)
-        - Current Value (green)
-        - Depreciation amount (red, with minus sign)
-        - Depreciation percentage
+  - Top row: Asset name (bold) with delete icon (trash) on the right
+    - Purchase date in smaller gray text
+    - Description (if provided)
+  - Bottom grid (4 columns on desktop, 2 on mobile):
+    - Purchase Price (black)
+    - Current Value (green)
+    - Depreciation amount (red, with minus sign)
+    - Depreciation percentage
 - Empty state message when no assets exist
 
 ### Design Features:

@@ -58,11 +58,12 @@ export default function AssetsInput(props: { onAddAsset: (asset: Asset) => void,
     return (
         <header>
             <div className="main">
+                <h2>Add New Asset</h2>
                 <input type="text" placeholder="Asset name" value={asset.name} onChange={(event) => setName(event.target.value)} />
                 <input type="number" placeholder="Asset price" value={asset.price} onChange={(event) => setPrice(Number(event.target.value))} />
                 <input type="date" placeholder="Asset bought at" value={getBoughtAtDateString()} onChange={(event) => setBoughtAt(new Date(event.target.value))} />
                 <input type="text" placeholder="Asset description" value={asset.description} onChange={(event) => setDescription(event.target.value)} />
-                <button id="submit" onClick={handleSubmit}>Add</button>
+                <button id="submit" onClick={handleSubmit}>Add Asset</button>
             </div>
         </header>
     )

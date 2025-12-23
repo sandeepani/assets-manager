@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AssetsInput from "./components/AssetsInput"
 import AssetsList from "./components/AssetsList"
 import { Asset } from "./models/Asset"
+import Title from "./components/Title";
 
 
 function App() {
@@ -79,9 +80,12 @@ function App() {
 
   return (
     <>
-      <AssetsInput onAddAsset={addAsset} asset={asset} setAsset={setAsset} updateAsset={updateAsset} />
+      <Title />
+      <div className="content-grid">
+        <AssetsInput onAddAsset={addAsset} asset={asset} setAsset={setAsset} updateAsset={updateAsset} />
 
-      <AssetsList assets={assets} onDeleteAsset={deleteAsset} onEditAsset={editSelectedAsset} />
+        <AssetsList assets={assets} onDeleteAsset={deleteAsset} onEditAsset={editSelectedAsset} />
+      </div>
     </>
   )
 
