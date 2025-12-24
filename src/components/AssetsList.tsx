@@ -22,7 +22,6 @@ export default function AssetsList(props: { assets: Asset[], onDeleteAsset: (id:
                 const newProps = { ...actions, asset };
                 return (
                     <AssetsCard key={index} {...newProps}>
-                        <p></p>
                     </AssetsCard>
                 )
             })}

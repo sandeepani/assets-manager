@@ -1,20 +1,8 @@
 import React from 'react'
 import type { Asset } from '../models/Asset';
 
-export default function AssetsCard(props: { asset: Asset | undefined, children: React.ReactNode, onDeleteAsset: (id: number) => void, onEditAsset: (id: number) => void }) {
-    const { asset, children, onDeleteAsset, onEditAsset } = props;
-
-    function calculateCurrentValue(asset: Asset): string {
-        const today = new Date(Date.now());
-        let currentValue = 0;
-        if (daysBetween(today, asset.boughtAt) === 0) {
-            currentValue = asset.price;
-        } else {
-            const totalDays = daysBetween(today, asset.boughtAt);
-            currentValue = asset.price / totalDays;
-        }
-        return currentValue.toFixed(2);
-    }
+export default function AssetsCard(props: { asset: Asset | undefined, onDeleteAsset: (id: number) => void, onEditAsset: (id: number) => void }) {
+    const { asset, onDeleteAsset, onEditAsset } = props;
 
     function calculateValueToNumber(asset: Asset | undefined): number {
         if (!asset) return 0;
