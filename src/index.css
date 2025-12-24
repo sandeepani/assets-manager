@@ -344,4 +344,11 @@ header,
     align-items: start; /* All items in the container will align to the start and fit their content */
   }
 
+  .column-header{
+    text-align: center;
+  }
+
+  .column-value{
+    text-align: center;
+  }
 }
