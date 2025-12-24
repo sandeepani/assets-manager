@@ -4,7 +4,7 @@ import type { Asset } from '../models/Asset';
 export default function AssetsCard(props: { asset: Asset, children: React.ReactNode, onDeleteAsset: (id: number) => void, onEditAsset: (id: number) => void }) {
     const { asset, children, onDeleteAsset, onEditAsset } = props;
 
-    function calculateCurrentValue(asset: Asset): React.ReactNode {
+    function calculateCurrentValue(asset: Asset): string {
         const today = new Date(Date.now());
         let currentValue = 0;
         if (daysBetween(today, asset.boughtAt) === 0) {
@@ -14,6 +14,22 @@ export default function AssetsCard(props: { asset: Asset, children: React.ReactN
             currentValue = asset.price / totalDays;
         }
         return currentValue.toFixed(2);
+    }
+
+    function calculateCurrentValueToNumber(asset: Asset): number {
+        const today = new Date(Date.now());
+        let currentValue = 0;
+        if (daysBetween(today, asset.boughtAt) === 0) {
+            currentValue = asset.price;
+        } else {
+            const totalDays = daysBetween(today, asset.boughtAt);
+            currentValue = asset.price / totalDays;
+        }
+        return currentValue;
+    }
+
+    function formatValue(value: number): string {
+        return value.toFixed(2);
     }
 
     function getBoughtAtDateString(): string {
@@ -35,21 +51,44 @@ export default function AssetsCard(props: { asset: Asset, children: React.ReactN
         return stringSections[0];
     }
 
+    function formatCurrency(amount: number) {
+        return new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP",
+        }).format(amount);
+    }
+
     return (
-        <li className='todoItem'>
-            {children}
-            <h2>{asset.name}</h2>
-            <h3>{asset.price}</h3>
-            <p>{getBoughtAtDateString()}</p>
-            <p>{asset.description}</p>
-            <h3>{calculateCurrentValue(asset)}</h3>
-            <div className="actionsContainer">
-                <button onClick={() => onEditAsset(asset.id)}>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button onClick={() => onDeleteAsset(asset.id)}>
-                    <i className="fa-regular fa-trash-can"></i>
-                </button>
+        <li className='todoItem' onClick={() => onEditAsset(asset.id)}>
+            {/* {children} */}
+            <div className='todoItem-row todoItem-row-up'>
+                <div className='todoItem-column todoItem-column-left'>
+                    <h2>{asset.name}</h2>
+                    <p>Purchased on {getBoughtAtDateString()}</p>
+                </div>
+
+                <div className="actionsContainer todoItem-column todoItem-column-right">
+                    <button onClick={() => onDeleteAsset(asset.id)}>
+                        <i className="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+            </div>
+
+            {/* {children} */}
+            <div className='todoItem-row todoItem-row-middle'>
+                <p>{asset.description}</p>
+            </div>
+
+            <div className='todoItem-row todoItem-row-down'>
+                <div className='todoItem-column column-1'>
+                    <p className="column-header">Purchase Price</p>
+                    <p className='column-value'>{formatCurrency(asset.price)}</p>
+                </div>
+
+                <div className='todoItem-column column-2'>
+                    <p className="column-header">Current Value</p>
+                    <p className='column-value'>{formatCurrency(calculateCurrentValueToNumber(asset))}</p>
+                </div>
             </div>
         </li>
     )
