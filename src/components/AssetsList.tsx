@@ -8,14 +8,14 @@ export default function AssetsList(props: { assets: Asset[], onDeleteAsset: (id:
     const { assets, onDeleteAsset, onEditAsset } = props;
     const actions = { onDeleteAsset, onEditAsset };
 
-    // if (assets.length === 0) {
-    //     return (
-    //         <EmptyCard >
-    //             <p className=""></p>
-    //         </EmptyCard>
-    //     );
-    // }
-    // else {
+    if (assets?.length === 0) {
+        return (
+
+            <li className='todoItemDummy' >
+                <p id="dummyText">No assets added yet. Start by adding your first asset.</p>
+            </li>
+        );
+    }
     return (
         <ul className='main-grid'>
             {assets.map((asset, index) => {
@@ -28,5 +28,4 @@ export default function AssetsList(props: { assets: Asset[], onDeleteAsset: (id:
             })}
         </ul>
     )
-    // }
 }

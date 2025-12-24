@@ -155,22 +155,6 @@ color: #4A5565;
 }
 
 .main,
-.todoItem {
-  border: 1px solid #0000001a;
-  border-radius: 14px;
-  background: white; 
-}
-
-.todoItem:hover {
-    border: 1px solid #6C5CF3;
-}
-
-.todoItem:active {
-  background: #F9FAFB; 
-  transform: translateY(2px); /* Creates a "pressed" effect */
-}
-
-.main,
 .main-grid,
 .main-inputs {
   display: flex;
@@ -204,6 +188,33 @@ color: #4A5565;
   /* Creates 3 columns of equal width and automatically stretches children */
 /* grid-template-columns: repeat(7, 1fr);  */
 
+}
+
+.todoItemDummy {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  gap: 0px;
+  padding: 16px;
+
+}
+
+.main,
+.todoItem,
+.todoItemDummy {
+  border: 1px solid #0000001a;
+  border-radius: 14px;
+  background: white; 
+}
+
+.todoItem:hover {
+    border: 1px solid #6C5CF3;
+}
+
+.todoItem .real:active {
+  background: #F9FAFB; 
+  transform: translateY(2px); /* Creates a "pressed" effect */
 }
 
 .todoItem-row {

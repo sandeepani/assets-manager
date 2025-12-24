@@ -64,7 +64,7 @@ export default function AssetsInput(props: { onAddAsset: (asset: Asset) => void,
                     <input type="number" placeholder="Asset price" value={asset.price} onChange={(event) => setPrice(Number(event.target.value))} />
                     <input type="date" placeholder="Asset purchased on" value={getBoughtAtDateString()} onChange={(event) => setBoughtAt(new Date(event.target.value))} />
                     <textarea placeholder="Add any additional details..." value={asset.description} onChange={(event) => setDescription(event.target.value)} />
-                    <button id="submit" onClick={handleSubmit}><h3>Add Asset</h3></button>
+                    <button id="submit" onClick={handleSubmit}><h3>{asset.id && asset.id !== -1 ? "Update" : "Add"} Asset</h3></button>
                 </div>
             </div>
         </header>
